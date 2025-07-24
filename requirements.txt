@@ -1,0 +1,23 @@
+# Basis‑Bibliotheken für das Projekt
+feedparser==6.0.10
+newspaper3k==0.2.8
+spacy==3.7.2
+transformers==4.41.0  # für FinBERT
+pandas==2.2.2
+SQLAlchemy==2.0.29
+psycopg2-binary==2.9.9
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+pydantic==2.7.3
+celery==5.4.0
+redis==5.0.2
+streamlit==1.34.0
+scikit-learn==1.4.2
+pytest==8.2.0
+flake8==7.0.0
+black==24.4.2
+isort==5.13.2
+python-dotenv==1.0.1
+
+# Hinweis: Das spaCy‑Modell `en_core_web_lg` muss separat installiert werden:
+# python -m spacy download en_core_web_lg

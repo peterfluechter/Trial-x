@@ -1,0 +1,61 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: econ_user
+      POSTGRES_PASSWORD: econ_pass
+      POSTGRES_DB: econ_signals
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn src.api.main:app --host 0.0.0.0 --port 8000
+    environment:
+      DATABASE_URL: postgresql+psycopg2://econ_user:econ_pass@db:5432/econ_signals
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "8000:8000"
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery -A src.tasks worker --loglevel=info
+    environment:
+      DATABASE_URL: postgresql+psycopg2://econ_user:econ_pass@db:5432/econ_signals
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+    depends_on:
+      - db
+      - redis
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: streamlit run src/streamlit_app.py --server.port 8501
+    environment:
+      DATABASE_URL: postgresql+psycopg2://econ_user:econ_pass@db:5432/econ_signals
+    depends_on:
+      - db
+    ports:
+      - "8501:8501"
+
+volumes:
+  postgres_data:
+    driver: local

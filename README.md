@@ -75,7 +75,7 @@ Unternehmensmeldungen frühzeitig Hinweise auf Marktentwicklungen zu erkennen.
 1. **Daten aktualisieren**: Der Endpunkt `/refresh` startet die
    Ingestion neuer Artikel und deren Verarbeitung.
 2. **Einzelverarbeitung**: Über `/process/{id}` kann ein bestimmter
-   Artikel nachverarbeitet werden, z. ‑ B. wenn er nachträglich
+   Artikel nachverarbeitet werden, z. B. wenn er nachträglich
    klassifiziert werden soll.
 3. **Signale abrufen**: Über `/signals` lassen sich die
    gespeicherten Signale abfragen. Parameter ermöglichen Filter
