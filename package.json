@@ -1,0 +1,15 @@
+{
+  "name": "trial-x",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sammel-Repository. Der Lehrfilm liegt als eigenstaendiges Unterprojekt in lehrfilm/.",
+  "workspaces": [
+    "lehrfilm"
+  ],
+  "scripts": {
+    "studio": "npm run studio --workspace efh-lehrfilm",
+    "render": "npm run render --workspace efh-lehrfilm",
+    "render-stumm": "npm run render-stumm --workspace efh-lehrfilm",
+    "typecheck": "npm run typecheck --workspace efh-lehrfilm"
+  }
+}

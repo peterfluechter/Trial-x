@@ -87,3 +87,20 @@ Das Projekt nutzt `pytest` für Unit‑Tests und `flake8` für Linting.
 Die Continuous‑Integration‑Pipeline in `.github/workflows/ci.yml`
 stellt sicher, dass Tests und Linter bei jedem Commit ausgeführt
 werden.
+
+## Lehrfilm „Lust auf Abstinenz" (Unterprojekt)
+
+Unabhängig vom Python‑Teil enthält dieses Repository das Remotion‑Projekt zum
+Lehrfilm, Kapitel 2 „Der Weg in die Sucht", im Verzeichnis `lehrfilm/`.
+Die eigene Dokumentation dazu steht in [lehrfilm/README.md](lehrfilm/README.md).
+
+Von der Repository‑Wurzel aus:
+
+```bash
+npm install
+npm run studio      # Live-Vorschau im Browser, Bearbeiten bei laufender Wiedergabe
+npm run render      # erzeugt lehrfilm/out/Kapitel02.mp4
+```
+
+Beide Teile teilen sich keine Abhängigkeiten: Der Python‑Teil bleibt von
+`npm install` unberührt, das Filmprojekt von `pip install -r requirements.txt`.
