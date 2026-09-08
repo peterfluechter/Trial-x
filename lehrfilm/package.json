@@ -1,0 +1,24 @@
+{
+  "name": "efh-lehrfilm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lehrfilm Lust auf Abstinenz - Kapitel 2, Der Weg in die Sucht",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Kapitel02 out/Kapitel02.mp4 --codec=h264 --crf=18",
+    "render-stumm": "remotion render Kapitel02 out/Kapitel02_stumm.mp4 --codec=h264 --crf=18 --muted",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.522",
+    "@remotion/google-fonts": "4.0.522",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.522"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "typescript": "5.9.3"
+  }
+}

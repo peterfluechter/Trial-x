@@ -1,0 +1,45 @@
+name: Film rendern
+
+# Startet nur auf ausdruecklichen Knopfdruck, nicht bei jeder Aenderung.
+# Ausloesen: Repository -> Actions -> "Film rendern" -> Run workflow.
+# Ergebnis: unten im Lauf unter "Artifacts" als ZIP mit der MP4-Datei.
+on:
+  workflow_dispatch:
+    inputs:
+      qualitaet:
+        description: "CRF-Wert, kleiner ist besser (18 = hohe Qualitaet, 23 = kleinere Datei)"
+        required: true
+        default: "18"
+
+jobs:
+  rendern:
+    name: Kapitel 2 rendern
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Projekt holen
+        uses: actions/checkout@v4
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Abhaengigkeiten installieren
+        run: npm ci
+
+      - name: Typpruefung
+        run: npx tsc --noEmit
+        working-directory: lehrfilm
+
+      - name: Rendern
+        run: npx remotion render Kapitel02 out/Kapitel02.mp4 --codec=h264 --crf=${{ inputs.qualitaet }}
+        working-directory: lehrfilm
+
+      - name: Ergebnis bereitstellen
+        uses: actions/upload-artifact@v4
+        with:
+          name: Kapitel02-Video
+          path: lehrfilm/out/Kapitel02.mp4
+          retention-days: 30
