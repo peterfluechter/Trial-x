@@ -1,0 +1,28 @@
+{
+  "name": "trial-x-video",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kapitelvideos als Code (Remotion): Live-Vorschau im Studio, Export als MP4.",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "studio": "remotion studio video/index.ts",
+    "render": "remotion render video/index.ts Kapitel02 out/Kapitel02.mp4",
+    "render:chapter": "remotion render video/index.ts",
+    "compositions": "remotion compositions video/index.ts",
+    "still": "remotion still video/index.ts Kapitel02 out/Kapitel02.png",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.522",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "remotion": "4.0.522"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "typescript": "5.9.3"
+  }
+}

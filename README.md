@@ -87,3 +87,18 @@ Das Projekt nutzt `pytest` für Unit‑Tests und `flake8` für Linting.
 Die Continuous‑Integration‑Pipeline in `.github/workflows/ci.yml`
 stellt sicher, dass Tests und Linter bei jedem Commit ausgeführt
 werden.
+
+## Videoproduktion (Kapitelvideos)
+
+Neben dem Python‑Teil enthält dieses Repository ein eigenständiges Videoprojekt
+auf Basis von **Remotion**: Kapitelvideos entstehen aus Textdaten, werden im
+Browser live bearbeitet und als MP4 exportiert.
+
+```bash
+npm install
+npm run studio      # Live-Vorschau im Browser, Bearbeiten bei laufender Wiedergabe
+npm run render      # erzeugt out/Kapitel02.mp4
+```
+
+Einzelheiten – Inhalte pflegen, weitere Kapitel anlegen, Gestaltung anpassen,
+Lizenzhinweis – stehen in [VIDEO.md](VIDEO.md).
