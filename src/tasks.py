@@ -10,16 +10,18 @@ Scheduler (z. B. Celery Beat) ausgelöst werden.
 from __future__ import annotations
 
 import logging
+
 from celery import shared_task
 from sqlalchemy.orm import Session
 
-from .celery_app import celery_app
-from .db.database import SessionLocal
+# Wird von "celery -A src.tasks worker" zum Auffinden der App gebraucht.
+from .celery_app import celery_app  # noqa: F401
 from .db import crud
-from .ingestion.rss_fetcher import fetch_rss_feed
+from .db.database import SessionLocal
 from .ingestion.article_processor import download_article
-from .nlp.pipeline import process_text
+from .ingestion.rss_fetcher import fetch_rss_feed
 from .nlp.events import classify_events
+from .nlp.pipeline import process_text
 from .scoring.scoring import heuristic_score
 
 logger = logging.getLogger(__name__)

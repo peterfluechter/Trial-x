@@ -10,8 +10,7 @@ umfassend gepflegt und bei Bedarf durch ML‑Modelle ergänzt werden.
 
 from __future__ import annotations
 
-from typing import List, Optional
-
+from typing import List
 
 EVENT_RULES = {
     "earnings warning": ["gewinnwarnung", "profit warning", "lower guidance"],

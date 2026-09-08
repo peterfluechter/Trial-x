@@ -13,7 +13,7 @@ import streamlit as st
 from sqlalchemy.orm import Session
 
 from .db.database import SessionLocal
-from .db.models import Signal, Article
+from .db.models import Article, Signal
 
 
 def load_signals(db: Session) -> pd.DataFrame:

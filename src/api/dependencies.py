@@ -10,8 +10,6 @@ from __future__ import annotations
 
 from typing import Generator
 
-from fastapi import Depends
-
 from ..db.database import get_db
 
 
