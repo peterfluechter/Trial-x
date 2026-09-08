@@ -12,12 +12,12 @@ import os
 from typing import Generator
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
-
+from sqlalchemy.orm import scoped_session, sessionmaker
 
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql+psycopg2://econ_user:econ_pass@db:5432/econ_signals",  # default for Docker
+    # Vorgabe fuer den Betrieb mit Docker Compose
+    "postgresql+psycopg2://econ_user:econ_pass@db:5432/econ_signals",
 )
 
 # Engine für synchrone Nutzung

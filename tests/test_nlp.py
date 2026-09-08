@@ -2,7 +2,7 @@
 Tests für die NLP‑Komponenten.
 """
 
-from econ_signals_tool.src.nlp.events import classify_events
+from src.nlp.events import classify_events
 
 
 def test_classify_events() -> None:

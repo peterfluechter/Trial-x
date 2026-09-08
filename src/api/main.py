@@ -10,17 +10,17 @@ Artikel sowie den Abruf gespeicherter Signale.
 from __future__ import annotations
 
 import logging
-from typing import List, Optional
+from typing import List
 
 from fastapi import Depends, FastAPI, HTTPException
 
 from ..db import crud
 from ..db.database import get_db
-from ..db.models import Base, Article, Signal
-from ..ingestion.rss_fetcher import fetch_rss_feed
+from ..db.models import Article
 from ..ingestion.article_processor import download_article
-from ..nlp.pipeline import process_text
+from ..ingestion.rss_fetcher import fetch_rss_feed
 from ..nlp.events import classify_events
+from ..nlp.pipeline import process_text
 from ..scoring.scoring import heuristic_score
 from . import schemas
 

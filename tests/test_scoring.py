@@ -2,7 +2,7 @@
 Tests für die Scoring‑Funktionen.
 """
 
-from econ_signals_tool.src.scoring.scoring import heuristic_score
+from src.scoring.scoring import heuristic_score
 
 
 def test_heuristic_score() -> None:
