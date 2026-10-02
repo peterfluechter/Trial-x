@@ -86,12 +86,3 @@ celerybeat-schedule
 # OS files
 .DS_Store
 Thumbs.db
-
-# Node / npm (Videoprojekt)
-node_modules/
-npm-debug.log*
-.npm/
-
-# Remotion: Renderausgaben und Cache
-out/
-.remotion/
